@@ -1,0 +1,14 @@
+package com.mysite.sbb;
+
+import java.time.LocalDateTime;
+
+public class Answer {
+	
+	private Integer id;
+	
+	private String content;
+	
+	private LocalDateTime createDate;
+	
+	private Question question;		// 부모 테이블이 Question 테이블의 primary Key를 참조 (id)
+}

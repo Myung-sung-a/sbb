@@ -1,0 +1,7 @@
+# 기본 포트 : 8080
+server.port=9797
+
+
+# DevTools 활성화
+spring.devtools.livereload.enabled=true
+spring.freemarker.cache=false

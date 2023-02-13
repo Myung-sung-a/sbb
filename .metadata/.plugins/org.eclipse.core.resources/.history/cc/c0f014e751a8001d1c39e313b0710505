@@ -1,0 +1,13 @@
+package com.mysite.sbb2.useres;
+
+import org.springframework.stereotype.Controller;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class UseresController {
+	
+	private final UsersRepository usersRepository;
+
+}
