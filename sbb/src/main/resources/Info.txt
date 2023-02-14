@@ -103,7 +103,7 @@ JPA는 DB의 테이블 컬럼이 수정, 생성, 삭제가 빈번하게 발생 �
 	
 	usersRepository를 Controller에서 생성자 주입
 	
-	client 요청 : http://licalhost:0000/user_list
+	client 요청 : http://localhost:0000/users_list
 	View page : users_list.html
 	
 	sbb2 프러젝트 폴더 입출 : 조명_이름.zip
@@ -152,6 +152,27 @@ Client 요청 : http://localhost:0000/users_detail/1
 	@Setter
 	
 	유효성 검사 필드 : subject, content
+	
+STS에서 포트가 충돌나서 실행이 안되는 경우
+1. 관리자 권한의 명령 프롬프틀로 실행
+2. netstat -nao : 열려있는 포트의 PID 확인 (PID : 프로세스(메모리의 로드된 프로그램)의 고유번호)
+
+
+<실습> sbb2 : <Controller> <Service> <Repository>
+테이블명 : user
+	idx primary key, 자동증가(1,1)
+	name varchar(100),
+	pass varchar(100),
+	email varchar(100),
+	regdate LocalDateTime,
+	cnt int
+	
+	1. 부트스트랩 import
+	2. layout.html <== 공통으로 적용되는 부분을 뽑아내서 처리, list.html, detail.html, input.html
+	3. 상단의 NavBar를 생성, 부트스트랩의 자바스크립트 처리
+	4. list.html 에 페이징 처리(10개 레코드), 날짜를 기준으로 desc, 번호를 처리 출력
+	5. 유효성 체크 : name , pass, email 에 값을 넣지 않을 경우 오류 메시지 출력, 값을 모두 넣었을 때 등록
+	
  			
 
 
