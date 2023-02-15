@@ -1,0 +1,9 @@
+package com.mysite.sbb.user2;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping("/user")
+
+public class UserController {
+
+}

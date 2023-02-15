@@ -60,11 +60,28 @@ public class UsersController {
 		return "users_detail";
 	}
 	
-	
+	 //create 페이지
+	   @GetMapping("/users/create")
+	   public String usersCreate(UsersForm usersForm) {
+	      return "users_form";
+	   }
+	   
+	   @PostMapping("/users/create")
+	   public String usersCreate(
+	         
+	         @Valid UsersForm usersForm, BindingResult bingResult)
+	   {
+	      if (bingResult.hasErrors()) {
+	         return "users_form";
+	      }
+	      
+	      
+	      this.usersService.create(usersForm.getName(), usersForm.getPass(), usersForm.getEmail());
+	      
+	      return "redirect:/users/list";
+	   }
+	   
 
-	
-	
-	
 	
 	
 	
