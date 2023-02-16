@@ -16,6 +16,12 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
    private final UserService userService;
+   
+   // 로그인 URL추가
+   @GetMapping("/login")
+   public String login() {
+	   return "login_form";
+   }
 
    @GetMapping("/signup")
    public String signup(UserCreateForm userCreateForm) {

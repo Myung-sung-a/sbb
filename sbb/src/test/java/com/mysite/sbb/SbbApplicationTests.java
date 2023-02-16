@@ -15,6 +15,7 @@ import com.mysite.sbb.answer.Answer;
 import com.mysite.sbb.answer.AnswerRepository;
 import com.mysite.sbb.question.Question;
 import com.mysite.sbb.question.QuestionRepository;
+import com.mysite.sbb.question.QuestionService;
 
 @SpringBootTest
 class SbbApplicationTests {
@@ -24,6 +25,9 @@ class SbbApplicationTests {
 	
 	@Autowired	// 객체 자동 주입 (DI), JPA의 메소드를 사용, findAll(), findById(), save(), delete()
 	private AnswerRepository answerRepository;
+	
+	@Autowired
+	private QuestionService questionService;
 	
 	   /* Answer 테이블에 더미데이터 입력*/
 	   @Test
@@ -43,6 +47,20 @@ class SbbApplicationTests {
 	      
 	      this.answerRepository.save(a);
 	   }
+	   
+	   @Test
+	   void testJpa() {
+		   
+		   for (int i =1; i<=300; i++) {
+			   
+			   String subject = String.format("테스트 데이터입니다.:[%03d]", i);
+			   
+			   String content = "내용무";
+			   
+			   this.questionService.create(subject,content,null);
+		   }
+	   }
+	   
 	
 	
 	

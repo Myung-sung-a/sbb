@@ -2,8 +2,10 @@ package com.mysite.sbb.question;
 
 import java.time.LocalDateTime;      //자신의 시스템의 local의 시간설정
 import java.util.List;
+import java.util.Set;
 
 import com.mysite.sbb.answer.Answer;
+import com.mysite.sbb.user.SiteUser;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -11,6 +13,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 //persistence : JPA에서 사용된 
 import lombok.Getter;
@@ -47,4 +51,15 @@ public class Question {
    private List<Answer> answerList;
    
    // question.getAnswerList();
+   
+   // "글쓴이"에해당되는author 속성
+   @ManyToOne	// 여러개의 질문이 한 명의 사용자에게 작성될 수 있다.
+   private SiteUser author;
+   
+   // 질문이나 답변이 언제 수정되었는지 확인하는 속성
+   private LocalDateTime modifyDate;
+   
+   // 추천인 속성
+   @ManyToMany
+   Set<SiteUser> voter;	// set으로 한 이유는 추천인은 중복되면 안되기 때문이다. (set 중복허용X)
 }

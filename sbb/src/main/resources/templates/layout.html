@@ -2,10 +2,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
 <!-- Bootstrap CSS Import -->
 <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+
+<!-- sbb CSS -->
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 
 <title>템플릿 html (view 페이지 생성 시 기본적용)</title>
 </head>
@@ -23,6 +26,10 @@
 	
 	<!-- 부트스트랩 자바 스크립트 import -->
 	<script th:src="@{/bootstrap.min.js}"></script>
+	
+	<!-- 자바스크립트 Start -->
+	
+	<th:block layout:fragment="script"></th:block>
 	
 	
 	
