@@ -166,6 +166,9 @@ public class QuestionController {
     return "redirect:/";
     }
    
+   // id : Qusetion 객체
+   // principal : 현재 투표하는 객체를 가지고 온다.
+   
    
    //추천버튼 클릭시 호출. 
    //로그인한 사람만 가능 -> @PreAuthorize("isAuthenticated()") 호출
